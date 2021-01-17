@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq-spring-cloud
+    image: rabbitmq:3.8.7-management-alpine
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:15672" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  zipkin:
+    container_name: zipkin-spring-cloud
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+  eureka:
+    image: springcloud/eureka
+    container_name: eureka-spring-cloud
+    ports:
+      - "8762:8762"
+    networks:
+      - "discovery"
+    environment:
+      - EUREKA_INSTANCE_PREFERIPADDRESS=true
