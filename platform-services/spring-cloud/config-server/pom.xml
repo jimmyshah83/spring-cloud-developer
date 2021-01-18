@@ -7,27 +7,29 @@
         <groupId>io.pivotal.pal.tracker</groupId>
         <artifactId>pal-tracker</artifactId>
         <version>2.1.136</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../..</relativePath>
     </parent>
 
-    <artifactId>timesheets</artifactId>
+    <artifactId>config-server</artifactId>
     <packaging>jar</packaging>
 
-    <name>timesheets</name>
-    <description>PAL Tracker Timesheets</description>
+    <name>config-server</name>
+    <description>PAL Tracker Config Server</description>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>rest-support</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.pivotal.pal.tracker</groupId>
-            <artifactId>timesheets-server</artifactId>
-            <version>2.1.136</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
