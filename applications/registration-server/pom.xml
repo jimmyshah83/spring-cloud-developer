@@ -56,10 +56,10 @@
             <artifactId>chaos-monkey-spring-boot</artifactId>
             <version>${chaos.monkey.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${spring.boot.admin.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
